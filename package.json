@@ -1,0 +1,30 @@
+{
+  "name": "technical-alpha",
+  "version": "1.0.0",
+  "description": "Official Site of the Technical Alpha Podcast",
+  "author": "Nicky Hajal <nhajal@gmail.com>",
+  "license": "Copyright",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "now": {
+    "alias": "technicalalpha.audio",
+    "dotenv": ".env.production"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^3.2.1",
+    "next-routes": "^1.0.40",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-icons": "^2.2.5",
+    "rss-parser": "^2.10.4",
+    "styled-components": "^2.1.2",
+    "twitch-api": "^0.4.6"
+  }
+}
