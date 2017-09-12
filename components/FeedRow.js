@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import C from '../constants';
-import strings from '../content/strings';
 import Container from './Container';
 import FeedList from './FeedList';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import C from '../constants';
-import strings from '../content/strings';
 import Container from './Container';
 import SocialButton from './SocialButton';
 
@@ -81,38 +80,41 @@ const LiveIndicator = styled.div`
     top: 7px;
   }
 `;
-const Header = ({ live }) => (
-  <Shell>
-    <Content>
-      <Logo />
-      <div className="controls">
-        <h3>{strings.podcastTime}</h3>
-        <div className="row">
-          <SocialButton service="twitter" href={strings.urlTwitter} />
-          <SocialButton service="facebook" href={strings.urlFacebook} />
-          <SocialButton
-            service="google"
-            href={strings.urlGoogle}
-            style={{ top: '4px' }}
-          />
-          <LiveIndicator live={live}>
-            {strings[live ? 'onair' : 'offair']}
-          </LiveIndicator>
-          <SocialButton
-            service="twitch"
-            href={strings.urlTwitch}
-            style={{ top: '2px' }}
-          />
-          <SocialButton
-            service="youtube"
-            href={strings.urlYouTube}
-            style={{ top: '0px' }}
-          />
+const Header = ({ live, content }) => {
+  const { strings } = content;
+  return (
+    <Shell>
+      <Content>
+        <Logo />
+        <div className="controls">
+          <h3>{strings.podcastTime}</h3>
+          <div className="row">
+            <SocialButton service="twitter" href={strings.urlTwitter} />
+            <SocialButton service="facebook" href={strings.urlFacebook} />
+            <SocialButton
+              service="google"
+              href={strings.urlGoogle}
+              style={{ top: '4px' }}
+            />
+            <LiveIndicator live={live}>
+              {strings[live ? 'onair' : 'offair']}
+            </LiveIndicator>
+            <SocialButton
+              service="twitch"
+              href={strings.urlTwitch}
+              style={{ top: '2px' }}
+            />
+            <SocialButton
+              service="youtube"
+              href={strings.urlYouTube}
+              style={{ top: '0px' }}
+            />
+          </div>
         </div>
-      </div>
-    </Content>
-  </Shell>
-);
+      </Content>
+    </Shell>
+  );
+};
 Header.defaultProps = {
   live: false,
 };

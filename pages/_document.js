@@ -1,6 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import strings from '../content/strings';
 import styles from '../styles';
 
 export default class CustomDocument extends Document {
@@ -18,7 +17,6 @@ export default class CustomDocument extends Document {
     return (
       <html>
         <Head>
-          <title>{strings.siteTitle}</title>
           {styleTags}
           <script src="//use.edgefonts.net/open-sans.js" />
           <link rel="stylesheet" type="text/css" href="/static/fonts.css" />

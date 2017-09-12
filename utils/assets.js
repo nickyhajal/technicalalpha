@@ -6,9 +6,13 @@ const getContent = require('./getContent');
 
 const assets = (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
-  Promise.all([checkStream, episodes, getPatrons, getContent]).then(r => {
+  Promise.all([
+    checkStream(),
+    episodes(),
+    getPatrons(),
+    getContent(),
+  ]).then(r => {
     const [live, episodes, patrons, content] = r;
-    console.log(content);
     res.send({
       live,
       episodes,

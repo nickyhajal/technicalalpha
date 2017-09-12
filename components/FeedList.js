@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import fetch from 'isomorphic-fetch';
 import C from '../constants';
-import strings from '../content/strings';
 import Container from './Container';
 import FeedRow from './FeedRow';
 
@@ -25,7 +24,7 @@ class FeedList extends React.Component {
   rowClick = () => {};
   renderItems() {
     return this.props.episodes.map(ep => (
-      <FeedRow ep={ep} onClick={this.rowClick} />
+      <FeedRow ep={ep} key={ep.guid} onClick={this.rowClick} />
     ));
   }
   render() {
