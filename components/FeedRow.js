@@ -7,8 +7,11 @@ import FeedList from './FeedList';
 const Shell = styled.div`
   padding: 15px 15px;
   width: 100%;
-  background: ${C.color.tan};
-  color: ${C.color.black};
+  cursor: pointer;
+  background: ${({ selected }) =>
+    selected ? `${C.color.gray} !important` : C.color.tan};
+  color: ${({ selected }) =>
+    selected ? `${C.color.beige} !important` : C.color.black};
   &:nth-of-type(2n) {
     background: ${C.color.beige};
   }
@@ -24,10 +27,10 @@ const Descr = styled.h4`
   font-weight: 100;
   margin: 0;
 `;
-const FeedRow = ({ ep }) => {
+const FeedRow = ({ ep, selected, onClick }) => {
   const { title, contentSnippet, summary } = ep;
   return (
-    <Shell>
+    <Shell selected={selected} onClick={onClick}>
       <Title>{title}</Title>
       <Descr>{contentSnippet}</Descr>
     </Shell>

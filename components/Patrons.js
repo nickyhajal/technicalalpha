@@ -8,7 +8,7 @@ import FeedList from './FeedList';
 const patronSizes = {
   god: [1, 76],
   fb: [2, 62],
-  oprah: [3, 36],
+  oprah: [3, 40],
   exec: [3, 28],
 };
 const Shell = styled.div`
@@ -27,9 +27,24 @@ const Heading = styled.div`
   background: url(/static/producer-heading.png);
   width: 538px;
   height: 84px;
-  margin: 60px auto 80px;
+  margin: 60px auto 58px;
   background-size: 100% auto;
   border: 0;
+  &:before,
+  &:after {
+    content: '';
+    height: 1px;
+    width: 181px;
+    position: absolute;
+    background: ${C.color.black};
+    top: 42px;
+  }
+  &:before {
+    left: -200px;
+  }
+  &:after {
+    right: -213px;
+  }
 `;
 const Text = styled.div`
   padding: 0 0 28px 28px;
@@ -56,15 +71,20 @@ const Row = styled.div`
   margin-bottom: 16px;
 `;
 const PatronRow = ({ type, patrons }) => {
-  console.log(patrons);
-  return <Row type={type}>{patrons.map(patron => <Name>{patron}</Name>)}</Row>;
+  return (
+    <Row type={type}>
+      {patrons.map((patron, inx) => (
+        <Name key={`${patron}-${inx}`}>{patron}</Name>
+      ))}
+    </Row>
+  );
 };
 const Patrons = ({ patrons, content }) => (
   <Shell>
     <Content>
       <Heading />
       {Object.keys(patrons).map(key => (
-        <PatronRow type={key} patrons={patrons[key]} />
+        <PatronRow type={key} patrons={patrons[key]} key={key} />
       ))}
     </Content>
   </Shell>

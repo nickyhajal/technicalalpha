@@ -1,152 +1,76 @@
 import React from 'react';
-import IoIosHeart from 'react-icons/lib/io/ios-heart';
-import IoIosHeartOutline from 'react-icons/lib/io/ios-heart-outline';
-import IoIosArrowBack from 'react-icons/lib/io/ios-arrow-back';
-import IoIosPlay from 'react-icons/lib/io/ios-play';
-import IoLogOut from 'react-icons/lib/io/log-out';
-import IoIosCloudDownloadOutline from 'react-icons/lib/io/ios-cloud-download-outline';
-import IoIosCloudDownload from 'react-icons/lib/io/ios-cloud-download';
-import cx from 'classnames';
+import IoRss from 'react-icons/lib/io/social-rss';
+import IoApple from 'react-icons/lib/io/social-apple';
 import styled from 'styled-components';
-import PaddedButton from './PaddedButton';
 import C from '../constants';
-import Spinner from './Spinner';
 
 const IonIcon = {
-  IoIosHeart,
-  IoIosHeartOutline,
-  IoIosArrowBack,
-  IoIosCloudDownloadOutline,
-  IoIosCloudDownload,
-  IoLogOut,
-  IoIosPlay,
+  rss: IoRss,
+  apple: IoApple,
+  soundcloud: false,
 };
-type IconButtonProps = {
-  className: string,
-  icon: string,
-  children: string,
-  format?: string,
-  iconStyle?: { [string]: string },
-  iconSize?: number | boolean,
-  iconSeparated?: boolean,
-  shadow?: boolean,
-  message?: string,
-  loading?: boolean,
-  onClick: (event?: SyntheticEvent) => any,
-  style: { [string]: string },
-};
-const IconShell = styled.div`
-  float: left;
+const Button = styled.a`
   position: relative;
-`;
-const getIconSize = (iconSize, format) => {
-  if (iconSize) return iconSize;
-  switch (format) {
-    case 'narrow': {
-      return 22;
+  display: block;
+
+  &.playerButton {
+    color: #fff;
+    border-radius: 4px;
+    font-family: bebas-neue;
+    padding: 6px 10px 6px 6px;
+    text-decoration: none;
+    margin-right: 8px;
+    cursor: pointer;
+    &:last-of-type {
+      margin-right: 0;
     }
-    default: {
-      return 25;
+    span {
+      position: relative;
+      top: 0px;
+      left: 2px;
     }
   }
-};
-const IconButton = (props: IconButtonProps) => {
+`;
+const IconButton = props => {
   const {
     className,
     icon,
-    iconSeparated,
-    iconStyle,
     iconSize,
-    children,
-    format,
-    message,
-    shadow,
-    style,
-    loading,
+    href,
     onClick,
+    style,
+    textStyle,
+    children,
+    bg,
   } = props;
   const Icon = IonIcon[icon];
-  const pass = {
-    format,
-    style,
-    onClick,
-  };
-  const finalClassName = cx(className, [
-    'iconButton',
-    iconSeparated ? 'iconSeparated' : '',
-    format.length ? `format-${format}` : '',
-  ]);
+  style.background = bg;
   return (
-    <PaddedButton {...pass} className={finalClassName}>
-      <IconShell className="icon" style={iconStyle}>
-        {loading ? (
-          <Spinner loading={loading} />
-        ) : (
-          <Icon size={getIconSize(iconSize, format)} color={C.storm} />
-        )}
-      </IconShell>
-      <span className="text">{children}</span>
-      <span className="message">{message}</span>
-    </PaddedButton>
+    <Button href={href} style={style} target="_blank" className={className}>
+      {Icon ? (
+        <Icon size={iconSize} color={C.color.white} />
+      ) : (
+        <div
+          style={{
+            background: `url(/static/${icon}-logo.png)`,
+            backgroundSize: 'contain',
+            float: 'left',
+            position: 'relative',
+            top: '6px',
+            backgroundRepeat: 'no-repeat',
+            width: `${iconSize}px`,
+            height: `${iconSize}px`,
+          }}
+        />
+      )}
+      <span style={textStyle}>{children}</span>
+    </Button>
   );
 };
 IconButton.defaultProps = {
-  iconStyle: {},
-  iconSeparated: false,
-  iconSize: false,
-  shadow: false,
-  message: '',
-  loading: false,
-  format: '',
+  className: '',
+  style: {},
+  textStyle: {},
+  iconSize: 20,
 };
-export default styled(IconButton)`
-  position: relative;
-  box-shadow: ${({ shadow }) =>
-    shadow ? '0 12px 32px rgba(51,83,88,0.23)' : 'none'};
-  .text {
-    top: 7px;
-    font-family: lato;
-    font-size: 16pt;
-    left: 6px;
-  }
-  .message {
-    width: 100%;
-    position: absolute;
-    top: 67px;
-    font-family: lato;
-    font-style: italic;
-    color: ${C.color.earth};
-    font-size: 11pt;
-    left: 6px;
-  }
-  &.format-narrow {
-    .text {
-      top: 2px;
-    }
-  }
-  &.iconSeparated {
-    .icon {
-      padding: 0px;
-      margin-left: -12px;
-      margin-top: 0px;
-      padding: 6px 16px 4px 20px;
-      margin-bottom: -1px;
-      background: ${C.cloud};
-      border-radius: 3px 0 0 3px;
-      border-right: 1px solid ${C.rain};
-    }
-    .pdrpSpinner {
-      width: 20px;
-      height: 20px;
-      position: relative;
-      margin: 6px auto 0;
-      transition: opacity 200ms;
-      -webkit-transition: opacity 200ms;
-      opacity: 1;
-      margin-top: 3px;
-      margin-bottom: 2px;
-      margin-left: 1px;
-      margin-right: 4px;
-    }
-  }
-`;
+export default IconButton;

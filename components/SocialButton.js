@@ -13,6 +13,7 @@ const IonIcon = {
   twitch: IoTwitch,
   facebook: IoFacebook,
   youtube: IoYouTube,
+  patreon: false,
 };
 const Button = styled.a`
   position: relative;
@@ -22,8 +23,20 @@ const SocialButton = props => {
   const { className, service, iconSize, href, onClick, style } = props;
   const Icon = IonIcon[service];
   return (
-    <Button href={href} style={style}>
-      <Icon size={iconSize} color={C.color.tan} />
+    <Button href={href} style={style} target="_blank">
+      {Icon ? (
+        <Icon size={iconSize} color={C.color.tan} />
+      ) : (
+        <div
+          style={{
+            background: `url(/static/${service}-logo.png)`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            width: `${iconSize}px`,
+            height: `${iconSize}px`,
+          }}
+        />
+      )}
     </Button>
   );
 };

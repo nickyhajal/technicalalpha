@@ -25,8 +25,10 @@
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
     "react-remarkable": "^1.1.1",
+    "react-wavesurfer": "^0.8.6",
     "rss-parser": "^2.10.4",
     "styled-components": "^2.1.2",
-    "twitch-api": "^0.4.6"
+    "twitch-api": "^0.4.6",
+    "wavesurfer.js": "^1.4.0"
   }
 }

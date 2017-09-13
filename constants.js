@@ -11,6 +11,7 @@ const constants = {
     red: '#cf3d41',
     blue: '#3d74cf',
     orange: '#cf663d',
+    white: '#ffffff',
   },
 };
 

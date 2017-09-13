@@ -8,10 +8,9 @@ import FeedRow from './FeedRow';
 const Shell = styled.div`
   background: ${C.color.darkgray};
   width: 543px;
-  height: 297px;
+  height: 293px;
   border-radius: 10px;
-  overflow-y: auto;
-  margin-left: 28px;
+  overflow-y: hidden;
 `;
 
 class FeedList extends React.Component {
@@ -23,8 +22,13 @@ class FeedList extends React.Component {
   }
   rowClick = () => {};
   renderItems() {
-    return this.props.episodes.map(ep => (
-      <FeedRow ep={ep} key={ep.guid} onClick={this.rowClick} />
+    return this.props.episodes.map((ep, i) => (
+      <FeedRow
+        ep={ep}
+        selected={this.props.selected === i}
+        key={ep.guid}
+        onClick={() => this.props.onSelect(i)}
+      />
     ));
   }
   render() {

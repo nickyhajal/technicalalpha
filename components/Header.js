@@ -18,13 +18,21 @@ const Logo = styled.button`
   background-size: 100% auto;
   margin-top: 8px;
   border: 0;
+  left: 89px;
   &:before,
   &:after {
     content: '';
     height: 1px;
     width: 70px;
     position: absolute;
-    top: 12px;
+    background: #f0e9cd;
+    top: 14px;
+  }
+  &:before {
+    left: -87px;
+  }
+  &:after {
+    right: -87px;
   }
 `;
 const Content = styled(Container)`
@@ -35,7 +43,7 @@ const Content = styled(Container)`
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 2px;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.4px;
   }
   .controls {
     float: right;
@@ -55,7 +63,7 @@ const Content = styled(Container)`
   }
 `;
 const LiveIndicator = styled.div`
-  padding: 6px;
+  padding: 7px 6px 6px;
   background: ${C.color.black};
   border-radius: 6px;
   font-weight: 100;
@@ -107,7 +115,13 @@ const Header = ({ live, content }) => {
             <SocialButton
               service="youtube"
               href={strings.urlYouTube}
-              style={{ top: '0px' }}
+              style={{ top: '1px' }}
+            />
+            <SocialButton
+              service="patreon"
+              href={strings.urlPatreon}
+              iconSize={18}
+              style={{ top: '5px' }}
             />
           </div>
         </div>

@@ -20,10 +20,11 @@ export default class CustomDocument extends Document {
           {styleTags}
           <script src="//use.edgefonts.net/open-sans.js" />
           <link rel="stylesheet" type="text/css" href="/static/fonts.css" />
-          <link rel="icon" type="image/png" href="/static/favicon.png" />
+          <link rel="shortcut icon" href="/static/favicon.ico" />
+          <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.4.0/wavesurfer.min.js" />
         </Head>
         {/* set className to body */}
-        <body className="photodropper">
+        <body className="technicalalpha">
           {this.props.value}
           <Main />
           <NextScript />
