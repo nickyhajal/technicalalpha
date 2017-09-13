@@ -7,13 +7,14 @@
   "license": "© 2017 Technical Alpha Podcast",
   "contact": "biz@technicalalpha.audio",
   "inquiries": "Business Inquiries",
-  "rssUri": "http://technicalalpha.libsyn.com/rss",
+  "urlRss": "http://technicalalpha.libsyn.com/rss",
   "urlFacebook": "http://facebook.com/technicalalpha",
   "urlTwitter": "http://twitter.com/technicalalpha",
   "urlYoutube": "http://youtube.com/technicalalpha",
   "urlTwitch": "http://twitch.com/technicalalpha",
   "urlPatreon": "http://patreon.com/technicalalpha",
   "urlGoogle": "http://google.com/technicalalpha",
-  "urlItunes": "http://google.com/technicalalpha",
-  "urlSoundcloud": "http://google.com/technicalalpha"
+  "urlItunes":
+    "https://itunes.apple.com/us/podcast/technical-alpha/id1218065841",
+  "urlSoundcloud": "https://soundcloud.com/technicalalpha"
 }
