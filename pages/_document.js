@@ -19,9 +19,10 @@ export default class CustomDocument extends Document {
         <Head>
           {styleTags}
           <script src="//use.edgefonts.net/open-sans.js" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="stylesheet" type="text/css" href="/static/fonts.css" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
-          <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.4.0/wavesurfer.min.js" />
+          <script src="/static/wavesurfer.js" />
         </Head>
         {/* set className to body */}
         <body className="technicalalpha">

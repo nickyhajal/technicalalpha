@@ -8,12 +8,13 @@ module.exports = () =>
       const twitch = new TwitchApi({
         clientId: process.env.TWITCH_KEY,
         clientSecret: process.env.TWITCH_SECRET,
-        redirectUri: process.env.TWITCH_REDIR,
+        redirectUri: null,
         scopes: [],
       });
       lastCheck = now;
       twitch.getChannelStream('technicalalpha', (err, rsp) => {
-        status = rsp.stream !== undefined && rsp.stream !== null;
+        status =
+          rsp !== undefined && rsp.stream !== undefined && rsp.stream !== null;
         resolve(status);
       });
     } else {

@@ -3,19 +3,23 @@ import styled from 'styled-components';
 import C from '../constants';
 import Container from './Container';
 import SocialButton from './SocialButton';
+import media from '../utils/media';
 
 const Shell = styled.div`
   background: ${C.color.darkgray};
   height: 60px;
   padding: 7px;
   width: 100%;
+  ${media.handheld`
+  height: 120px;
+  `};
 `;
 const Logo = styled.button`
   position: relative;
   background: url(/static/word-logo.png);
   width: 190px;
-  height: 35px;
-  background-size: 100% auto;
+  height: 36px;
+  background-size: 100% auto !important;
   margin-top: 8px;
   border: 0;
   left: 89px;
@@ -34,6 +38,17 @@ const Logo = styled.button`
   &:after {
     right: -87px;
   }
+  ${media.xx`
+    background: url(/static/word-logo@2x.png);
+  `} ${media.xxx`
+    background: url(/static/word-logo@3x.png);
+  `} ${media.handheld`
+    left: 0;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 5px;
+  `};
 `;
 const Content = styled(Container)`
   color: ${C.color.beige};
@@ -60,6 +75,10 @@ const Content = styled(Container)`
         }
       }
     }
+    ${media.handheld`
+      float: none;
+      margin: 0 auto;
+    `};
   }
 `;
 const LiveIndicator = styled.div`

@@ -24,9 +24,14 @@ const Button = styled.a`
     &:last-of-type {
       margin-right: 0;
     }
-    span {
+    svg {
       position: relative;
       top: 0px;
+      vertical-align: top !important;
+    }
+    span {
+      position: relative;
+      top: 2px;
       left: 2px;
     }
   }

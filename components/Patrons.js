@@ -4,6 +4,7 @@ import C from '../constants';
 import strings from '../content/strings';
 import Container from './Container';
 import FeedList from './FeedList';
+import media from '../utils/media';
 
 const patronSizes = {
   god: [1, 76],
@@ -28,7 +29,7 @@ const Heading = styled.div`
   width: 538px;
   height: 84px;
   margin: 60px auto 58px;
-  background-size: 100% auto;
+  background-size: 100% auto !important;
   border: 0;
   &:before,
   &:after {
@@ -38,13 +39,35 @@ const Heading = styled.div`
     position: absolute;
     background: ${C.color.black};
     top: 42px;
+    ${media.handheld`
+      top: 19px;
+      width: 50px;
+    `};
   }
   &:before {
     left: -200px;
+    ${media.handheld`
+      left: -55px;
+    `};
   }
   &:after {
     right: -213px;
+    ${media.handheld`
+      right: -65px;
+    `};
   }
+  ${media.xx`
+    background: url(/static/producer-heading@2x.png);
+  `};
+  ${media.xxx`
+    background: url(/static/producer-heading@3x.png);
+  `};
+  ${media.handheld`
+    width: 260px;
+    height: 40px;
+    left: -5px;
+    margin: 30px auto 28px;
+  `};
 `;
 const Text = styled.div`
   padding: 0 0 28px 28px;
@@ -69,6 +92,9 @@ const Row = styled.div`
   column-count: ${({ type }) => patronSizes[type][0]};
   font-size: ${({ type }) => `${patronSizes[type][1]}px`};
   margin-bottom: 16px;
+  ${media.handheld`
+  column-count: 1;
+  `};
 `;
 const PatronRow = ({ type, patrons }) => {
   return (
