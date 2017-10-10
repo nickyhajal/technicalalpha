@@ -1,6 +1,12 @@
 import React from 'react';
 import IoRss from 'react-icons/lib/io/social-rss';
 import IoApple from 'react-icons/lib/io/social-apple';
+import IoVolHigh from 'react-icons/lib/io/volume-high';
+import IoVolMedium from 'react-icons/lib/io/volume-medium';
+import IoVolLow from 'react-icons/lib/io/volume-low';
+import IoMute from 'react-icons/lib/io/android-volume-mute';
+import IoSpeedometer from 'react-icons/lib/io/speedometer';
+import IoIosDownloadOutline from 'react-icons/lib/io/code-download';
 import styled from 'styled-components';
 import C from '../constants';
 
@@ -8,10 +14,17 @@ const IonIcon = {
   rss: IoRss,
   apple: IoApple,
   soundcloud: false,
+  volHigh: IoVolHigh,
+  volMedium: IoVolMedium,
+  volLow: IoVolLow,
+  volMute: IoMute,
+  speedometer: IoSpeedometer,
+  downloadOutline: IoIosDownloadOutline,
 };
 const Button = styled.a`
   position: relative;
   display: block;
+  cursor: pointer;
 
   &.playerButton {
     color: #fff;
@@ -41,6 +54,7 @@ const IconButton = props => {
     className,
     icon,
     iconSize,
+    color,
     href,
     onClick,
     style,
@@ -51,9 +65,15 @@ const IconButton = props => {
   const Icon = IonIcon[icon];
   style.background = bg;
   return (
-    <Button href={href} style={style} target="_blank" className={className}>
+    <Button
+      href={href}
+      style={style}
+      target="_blank"
+      className={className}
+      onClick={onClick}
+    >
       {Icon ? (
-        <Icon size={iconSize} color={C.color.white} />
+        <Icon size={iconSize} color={color} />
       ) : (
         <div
           style={{
@@ -75,7 +95,9 @@ const IconButton = props => {
 IconButton.defaultProps = {
   className: '',
   style: {},
+  color: C.color.white,
   textStyle: {},
   iconSize: 20,
+  onClick: () => {},
 };
 export default IconButton;
