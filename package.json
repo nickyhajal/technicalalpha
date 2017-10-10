@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production pm2 server.js"
   },
   "now": {
     "alias": "technicalalpha.audio",
