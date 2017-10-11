@@ -438,7 +438,6 @@ class Player extends React.Component {
                   color={C.color.beige}
                   iconSize={24}
                   href={ep && ep.enclosure ? ep.enclosure.url : ''}
-                  onClick={() => alert('hey')}
                 />
               </SubControlsSection>
               <SubControlsSection>

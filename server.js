@@ -9,6 +9,7 @@ const handler = routes.getRequestHandler(app);
 const express = require('express');
 const server = express();
 
+// https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04
 app.prepare().then(() => {
   server.get('/api/assets', assets);
   server.get('/api/redirectUrl', getRedirectUrl);

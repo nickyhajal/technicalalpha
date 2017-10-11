@@ -81,7 +81,8 @@ const Content = styled(Container)`
     `};
   }
 `;
-const LiveIndicator = styled.div`
+const LiveIndicator = styled.a`
+  display: block;
   padding: 7px 6px 6px;
   background: ${C.color.black};
   border-radius: 6px;
@@ -123,7 +124,7 @@ const Header = ({ live, content }) => {
               href={strings.urlGoogle}
               style={{ top: '4px' }}
             />
-            <LiveIndicator live={live}>
+            <LiveIndicator live={live} target="_blank" href={strings.urlTwitch}>
               {strings[live ? 'onair' : 'offair']}
             </LiveIndicator>
             <SocialButton
