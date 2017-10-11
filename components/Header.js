@@ -91,6 +91,7 @@ const LiveIndicator = styled.a`
   width: 130px;
   font-size: 15px;
   text-align: center;
+  text-decoration: none;
   position: relative;
   text-indent: 12px;
   cursor: pointer;
