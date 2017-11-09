@@ -109,7 +109,7 @@ const Patrons = ({ patrons, content }) => (
   <Shell>
     <Content>
       <Heading />
-      {Object.keys(patrons).map(key => (
+      {Object.keys(patronSizes).map(key => (
         <PatronRow type={key} patrons={patrons[key]} key={key} />
       ))}
     </Content>

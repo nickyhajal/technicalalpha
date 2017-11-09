@@ -6,7 +6,6 @@ const getPatrons = () =>
     fs.readFile(
       '/var/www/technicalalpha/content/patreonwall.json',
       (err, data) => {
-        console.log(data);
         const patrons = JSON.parse(data);
         Object.keys(patrons).forEach(k => {
           const avail = nums[k] - patrons[k].length;
@@ -17,23 +16,6 @@ const getPatrons = () =>
         resolve(patrons);
       },
     );
-    // const patrons = {
-    //   god: [],
-    //   fb: ['Jetrix'],
-    //   oprah: ['BSTULLKIT'],
-    //   exec: [
-    //     'JoeMcDong',
-    //     'Sir Homes',
-    //     'Postal Panda',
-    //     'Jamaican Jazz',
-    //     'Adam B',
-    //     'ToadOfSteel',
-    //     'Naeli',
-    //     'Derek P',
-    //     'Frysiee',
-    //     'IceWulfie',
-    //   ],
-    // };
   });
 
 module.exports = getPatrons;
