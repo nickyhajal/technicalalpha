@@ -16,20 +16,20 @@ module.exports = () =>
       ])
         .then(vals => {
           const [aboutRsp, stringsRsp] = vals;
-          Promise.all([
-            aboutRsp.text(),
-            stringsRsp.text(),
-          ]).then(([about, strings]) => {
-            content = {
-              about,
-              strings: JSON.parse(strings),
-            };
-            lastFetched = now;
-            resolve(content);
-          });
+          Promise.all([aboutRsp.text(), stringsRsp.text()]).then(
+            ([about, strings]) => {
+              content = {
+                about,
+                strings: JSON.parse(strings),
+              };
+              lastFetched = now;
+              resolve(content);
+            },
+          );
         })
         .catch(err => {
           console.log(err);
+          resolve(content);
         });
     } else {
       resolve(content);
